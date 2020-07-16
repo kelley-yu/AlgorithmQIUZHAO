@@ -17,6 +17,7 @@ Week1学习笔记
 [加一（谷歌、字节跳动、Facebook 在半年内面试中考过）](https://leetcode-cn.com/problems/plus-one/)
 
 [有效的字母异位词（亚马逊、Facebook、谷歌在半年内面试中考过）](https://leetcode-cn.com/problems/valid-anagram/description/)
+
 中等题目
 --------
 [设计循环双端队列（Facebook 在 1 年内面试中考过）](https://leetcode-cn.com/problems/design-circular-deque/)
