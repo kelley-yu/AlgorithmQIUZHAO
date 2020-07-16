@@ -27,13 +27,23 @@ Week1学习笔记
 困难题目
 --------
 [接雨水（亚马逊、字节跳动、高盛集团、Facebook 在半年内面试常考）](https://leetcode-cn.com/problems/trapping-rain-water/)
-
+***
 python的heapq
 -------------
 该模块提供了堆队列算法（优先级队列算法priorityqueue）的实现
 
-api大致有8种：heappush; heappop; heappushpop; heapify; heapreplace(最小堆的操作实现)
-merge; nlargest; nsmallest(通用功能)
+从数据的存储结构看，最大堆/最小堆是一个数组。  
+从数据的逻辑结构看，最大堆/最小堆是一棵完全二叉树。  
+
+* 堆有以下三种基本操作：  
+    * 1.`初始化`：将一个无序的序列初始化成堆。从最后一个非叶子结点(namely, (max_index-1)/2)开始，自右向左，自下向上，对每一个根结点执行`siftdown`操作。O(N)  
+    * 2.`插入`：在数组的末尾插入新的元素，然后执行siftup操作。O(logN)  
+    * 3.`删除`：删除指定位置的元素，用数组末尾的元素代替。然后视情况执行`siftup`或者`siftdown`操作（注意这两个操作是互斥的，只能执行其中之一）。O(logN)  
+        * 当前元素若可能与下一层元素交换，就是`siftdown`；若可能与上一层元素交换，就是`siftup`  
+        * （或者说当前元素被“挖出”后形成的“坑”，若往上升就是`siftup`，若往下降就是`siftdown`）
+
+api大致有8种：heappush; heappop; heappushpop; heapify; heapreplace(最小堆的5种操作实现)
+merge; nlargest; nsmallest(3种通用功能)
 ```py
 __all__ = ['heappush', 'heappop', 'heappushpop', 'heapify', 'heapreplace',
            'merge','nlargest', 'nsmallest']
@@ -84,6 +94,7 @@ def heapreplace(heap, item):
     _siftup(heap, 0)
     return returnitem
 ```
+`siftdown``siftup`操作：维护堆
 ```py
 def _siftdown(heap, startpos, pos):
     newitem = heap[pos]
@@ -120,3 +131,20 @@ def _siftup(heap, pos):
     heap[pos] = newitem
     _siftdown(heap, startpos, pos)
 ```
+此外，heapq也支持最大堆，相应的函数后加_max（例如heapq._heappop_max）
+
+nlargest(n,iter)、nsmallest(n,iter)  
+heapq中剩下的两个函数nlargest(n.iter)和nsmallest(n.iter)分别用来寻找任何可迭代的对象iter中第n大或者第n小的元素。可以通过使用排序（sorted函数）和分片进行完成。
+```py
+In [18]: heap = [0.5, 1, 5, 3, 2, 7, 9, 8, 4, 6]
+#返回第一个最大的数
+In [19]: heapq.nlargest(1,heap)
+Out[19]: [9]
+#返回第一个最小的数
+In [20]: heapq.nsmallest(1,heap)
+Out[20]: [0.5]
+```
+参考文献
+--------
+https://github.com/python/cpython/blob/master/Lib/heapq.py  
+https://docs.python.org/3/library/heapq.html
