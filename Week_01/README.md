@@ -27,3 +27,11 @@ Week1学习笔记
 困难题目
 --------
 [接雨水（亚马逊、字节跳动、高盛集团、Facebook 在半年内面试常考）](https://leetcode-cn.com/problems/trapping-rain-water/)
+
+python的heapq
+-------------
+该模块提供了堆队列算法（优先级队列算法priorityqueue）的实现
+api大致有8种：heappush; heappop; heappushpop; heapify; heapreplace; merge; nlargest; nsmallest
+```py
+
+```
