@@ -31,7 +31,17 @@ Week1学习笔记
 python的heapq
 -------------
 该模块提供了堆队列算法（优先级队列算法priorityqueue）的实现
-api大致有8种：heappush; heappop; heappushpop; heapify; heapreplace; merge; nlargest; nsmallest
-```py
 
+api大致有8种：heappush; heappop; heappushpop; heapify; heapreplace(最小堆的操作实现)
+merge; nlargest; nsmallest(通用功能)
+```py
+__all__ = ['heappush', 'heappop', 'heappushpop', 'heapify', 'heapreplace',
+           'merge','nlargest', 'nsmallest']
 ```
+将item压入堆中，并保持堆不变（siftdown）
+```py
+def heappush(heap, item):
+    """Push item onto heap, maintaining the heap invariant."""
+    heap.append(item)
+    _siftdown(heap, 0, len(heap)-1)
+ ```
