@@ -55,6 +55,7 @@ for j in range(1, size):
 print('有序的数组')
 
 思路二：二分查找，O（log n）
+
 ```nums = [4, 5, 6, 7, 0, 1, 2]
 size = len(nums)
 left, right = 0, size-1
