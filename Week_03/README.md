@@ -52,7 +52,7 @@ for j in range(1, size):
     if nums[i] > nums[j]:
         print('无序的地方在',j)
     i += 1
-print('有序的数组')
+print('有序的数组')```
 
 思路二：二分查找，O（log n）
 
@@ -65,4 +65,4 @@ while  left < right:
         left = mid + 1
     else:
         right = mid
-print('有序的数组') if left == 0 else print('无序的地方在',left)
+print('有序的数组') if left == 0 else print('无序的地方在',left)```
