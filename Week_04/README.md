@@ -3,9 +3,20 @@ Week4学习笔记
 中等题目
 --------
 
+[最小路径和（亚马逊、高盛集团、谷歌在半年内面试中考过）](https://leetcode-cn.com/problems/minimum-path-sum/)
+[解码方法（亚马逊、Facebook、字节跳动在半年内面试中考过）](https://leetcode-cn.com/problems/decode-ways/)
+[最大正方形（华为、谷歌、字节跳动在半年内面试中考过）](https://leetcode-cn.com/problems/maximal-square/)
+[任务调度器（Facebook 在半年内面试中常考）](https://leetcode-cn.com/problems/task-scheduler/)
+[回文子串（Facebook、苹果、字节跳动在半年内面试中考过）](https://leetcode-cn.com/problems/palindromic-substrings/)
 困难题目
 --------
- 
+
+[最长有效括号（字节跳动、亚马逊、微软在半年内面试中考过）](https://leetcode-cn.com/problems/longest-valid-parentheses/)
+
+[编辑距离（字节跳动、亚马逊、谷歌在半年内面试中考过）](https://leetcode-cn.com/problems/edit-distance/)
+
+[矩形区域不超过 K 的最大数值和（谷歌在半年内面试中考过）](https://leetcode-cn.com/problems/max-sum-of-rectangle-no-larger-than-k/)
+
 针对问题，两种思路：
 
 1. 找最近最简方法，将其拆解成可重复解决的子问题
