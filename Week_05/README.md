@@ -57,7 +57,34 @@ def find(self, p, x):
 ```
 分析“单词搜索 II”用 Tire 树实现的时间复杂度
 -------------
+代码
+```
+class Solution:
+    def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
+        trie = {}
+        for word in words:
+            node = trie
+            for char in word:
+                node = node.setdefault(char, {})
+            node['#'] = '#'
+        def dfs(i, j, node, pre, seen):
+            if '#' in node:
+                res.add(pre)
+            for (di, dj) in ((-1, 0), (1, 0), (0, -1), (0, 1)):
+                new_i, new_j = i+di, j+dj
+                if 0 <= new_i < m and 0 <= new_j < n and board[new_i][new_j] in node and (new_i, new_j) not in seen:
+                    dfs(new_i, new_j, node[board[new_i][new_j]], pre+board[new_i][new_j], seen | {(new_i, new_j)})
+        res = set()
+        m, n = len(board), len(board[0])
+        for i in range(m):
+            for j in range(n):
+                if board[i][j] in trie:
+                    dfs(i, j, trie[board[i][j]], board[i][j], {(i, j)})
+        return list(res)
+```
 假设m, n分别是board的行数和列数，L为单词的最大长度，则时间复杂度为`O(m*n*4*3^(L-1))`
+
+其中，m*n是两层for循环的时间复杂度，4*3^(L-1)是dfs的时间复杂度，最初有四个方向可以搜索（最坏情况），但在接下来的搜索中，只有三个方向可以搜索（不包括从上一步来的方向），即4*3^(L-1)
 
 位运算
 -------------
