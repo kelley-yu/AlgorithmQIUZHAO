@@ -58,7 +58,7 @@ def find(self, p, x):
 分析“单词搜索 II”用 Tire 树实现的时间复杂度
 -------------
 代码
-```
+```py
 class Solution:
     def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
         trie = {}
