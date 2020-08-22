@@ -175,11 +175,11 @@ for i in range(len(heap)):
 * 第一列：
     * if obstacleGrid[i][0] == 1: dp[i][0] = 0
     
-    dp[i][0] = dp[i-1][0]
+        dp[i][0] = dp[i-1][0]
 * 第一行：
     * if obstacleGrid[0][j] == 1: dp[0][j] = 0
     
-    dp[0][j] = dp[0][j-1] 
+        dp[0][j] = dp[0][j-1] 
 * 状态转移方程
     * if i >= 1 and j >= 1 and obstacleGrid[i][j] != 1: dp[i][j] = dp[i][j-1] + dp[i-1][j]
     
