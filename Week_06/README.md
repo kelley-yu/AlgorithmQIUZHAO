@@ -169,16 +169,21 @@ for i in range(len(heap)):
 ```
 [不同路径 II](https://leetcode-cn.com/problems/unique-paths-ii/) 状态转移方程
 
-* 特判：
-    * dp[0][0] = 1 if obstacleGrid[0][0] != 1 else 0
+* 初始化：
+    * dp[0][0] = 1 if obstacleGrid[0][0] != 1 else return 0
 
-* 第一行，第一列：
-    * if obstacleGrid[i][0] != 1: dp[i][0] = 1
-    
-      else: dp[i..m][0] = 0
+* 第一列：
+```py
+if obstacleGrid[i][0] == 1:
+                dp[i][0] = 0
+                continue
+dp[i][0] = dp[i-1][0]
+      ```
+* 第一行：
     * if obstacleGrid[0][j] == 1: dp[0][j] = 1
     
         else: dp[0][j..n] = 0
+* 状态转移方程
     * if i >= 1 and j >= 1 and obstacleGrid[i][j] != 1: dp[i][j] = dp[i][j-1] + dp[i-1][j]
     
         else: dp[i][j] = 0
