@@ -173,16 +173,13 @@ for i in range(len(heap)):
     * dp[0][0] = 1 if obstacleGrid[0][0] != 1 else return 0
 
 * 第一列：
-```py
-if obstacleGrid[i][0] == 1:
-                dp[i][0] = 0
-                continue
-dp[i][0] = dp[i-1][0]
-      ```
-* 第一行：
-    * if obstacleGrid[0][j] == 1: dp[0][j] = 1
+    * if obstacleGrid[i][0] == 1: dp[i][0] = 0
     
-        else: dp[0][j..n] = 0
+    dp[i][0] = dp[i-1][0]
+* 第一行：
+    * if obstacleGrid[0][j] == 1: dp[0][j] = 0
+    
+    dp[0][j] = dp[0][j-1] 
 * 状态转移方程
     * if i >= 1 and j >= 1 and obstacleGrid[i][j] != 1: dp[i][j] = dp[i][j-1] + dp[i-1][j]
     
