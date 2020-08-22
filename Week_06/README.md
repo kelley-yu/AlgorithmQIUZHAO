@@ -45,6 +45,8 @@ Week6学习笔记
 排序
 -------------
 选择排序
+
+每次选择序列中最小值放到待排序数组的起始位置
 ```py
 def selectionsort(nums):
     res = []
@@ -56,6 +58,8 @@ def selectionsort(nums):
     return res
 ```
 插入排序
+
+从前向后遍历，对于未排序数据，在已排序的序列从后向前遍历，找到相应位置，进行插入操作
 ```py
 def insertionsort(nums):
     if not nums: return []
@@ -71,6 +75,8 @@ def insertionsort(nums):
     return res
 ```
 冒泡排序
+
+两层嵌套循环，每次查看相邻的元素是否逆序，如果逆序，则交换
 ```py
 def bubblesort(nums):
     c = nums.copy()
@@ -81,6 +87,8 @@ def bubblesort(nums):
     return c
 ```
 快速排序
+
+将原始序列分为两部分，以中心点pivot（代码选择nums[0]），小元素都放在pivot左侧，大元素放pivot右侧；再对两部分分别继续快速排序
 ```py
 def quicksort(begin, end, nums):
     if begin >= end:
@@ -99,6 +107,8 @@ def partition(begin, end, nums):
     return mark
 ```
 归并排序
+
+将原始序列分为两部分（等分），再归并，最后合并在一起
 ```py
 def mergesort(nums, left, right):
     if left >= right:
@@ -125,6 +135,8 @@ def merge(nums, left, mid, right):
     nums[left:right+1] = res
 ```
 堆排序（手动维护）
+
+将原始序列依次输入堆中，建立小顶堆，再依次取出堆顶元素
 ```py
 def heapsort(nums):
     for i in range((len(nums)-2)//2, -1, -1):
